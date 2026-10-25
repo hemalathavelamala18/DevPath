@@ -27,6 +27,13 @@ pipeline {
                 bat '"C:\\Users\\hemal\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" run -d --name devpath-jenkins-deploy -p 8083:8081 devpath-app:latest'
             }
         }
+        
+        stage('Verify Deployment') {
+            steps {
+                bat 'curl.exe --fail --silent --show-error http://localhost:8083'
+            }
+        }
+
 
         stage('Complete') {
             steps {
