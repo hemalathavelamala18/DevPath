@@ -29,10 +29,14 @@ pipeline {
         }
         
         stage('Verify Deployment') {
-            steps {
-                bat 'curl.exe --fail --silent --show-error http://localhost:8083'
-            }
+    steps {
+        retry(10) {
+            sleep(time: 3, unit: 'SECONDS')
+            bat 'curl.exe --fail --silent --show-error http://localhost:8083'
         }
+    }
+}
+
 
 
         stage('Complete') {
