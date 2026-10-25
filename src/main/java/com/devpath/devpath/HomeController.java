@@ -19,7 +19,7 @@ public class HomeController {
                 <body style="font-family: Arial; text-align: center; margin-top: 100px;">
                     <h1>Welcome to DevPath!</h1>
                     <h2>Your Programming Learning and Placement Preparation Portal</h2>
-                    <p>Learn programming. Build projects. Prepare for placements.</p>
+                    <p>Learn coding. Build projects. Prepare for placements.</p>
                 </body>
                 </html>
                 """;
