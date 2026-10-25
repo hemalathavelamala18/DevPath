@@ -34,21 +34,19 @@ pipeline {
             }
         }
 
-        
-stage('Verify Deployment') {
-    steps {
-        retry(10) {
-            sleep(time: 3, unit: 'SECONDS')
-            bat 'curl.exe --fail --silent --show-error http://localhost:8083/'
-            bat 'curl.exe --fail --silent --show-error http://localhost:8083/courses'
+        stage('Verify Deployment') {
+            steps {
+                retry(10) {
+                    sleep(time: 3, unit: 'SECONDS')
+                    bat 'curl.exe --fail --silent --show-error http://localhost:8083/'
+                    bat 'curl.exe --fail --silent --show-error http://localhost:8083/courses'
+                }
+            }
         }
-    }
-}
-
 
         stage('Complete') {
             steps {
-                echo 'DevPath build, tests, Docker image, and deployment completed!'
+                echo 'DevPath build, tests, Docker build, deployment, and page verification completed!'
             }
         }
     }
