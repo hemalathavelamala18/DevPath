@@ -21,9 +21,16 @@ pipeline {
             }
         }
 
+        stage('Deploy') {
+            steps {
+                bat '"C:\\Users\\hemal\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" rm -f devpath-jenkins-deploy'
+                bat '"C:\\Users\\hemal\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" run -d --name devpath-jenkins-deploy -p 8083:8081 devpath-app:latest'
+            }
+        }
+
         stage('Complete') {
             steps {
-                echo 'DevPath build and Docker image completed successfully!'
+                echo 'DevPath build, Docker image, and deployment completed!'
             }
         }
     }
