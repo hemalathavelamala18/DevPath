@@ -46,7 +46,7 @@ pipeline {
 
         stage('Complete') {
             steps {
-                echo 'DevPath build, tests, Docker build, deployment, and page verification completed!'
+                echo 'DevPath build, tests, Docker image, deployment, and endpoint verification completed!'
             }
         }
     }
