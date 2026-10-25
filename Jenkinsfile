@@ -15,9 +15,15 @@ pipeline {
             }
         }
 
+        stage('Docker Build') {
+            steps {
+                bat 'docker build -t devpath-app .'
+            }
+        }
+
         stage('Complete') {
             steps {
-                echo 'DevPath build completed successfully!'
+                echo 'DevPath build and Docker image completed successfully!'
             }
         }
     }
