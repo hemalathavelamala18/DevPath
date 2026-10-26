@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login - DevPath</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            margin: 0;
+            padding: 40px 16px;
+        }
+        .box {
+            max-width: 420px;
+            margin: auto;
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px #0001;
+        }
+        input, button {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 16px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+        }
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .error { color: #b91c1c; }
+        .success { color: #15803d; }
+        a { color: #2563eb; }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h1>Log in to DevPath</h1>
+
+    <p class="error" th:if="${error}" th:text="${error}"></p>
+    <p class="success" th:if="${success}" th:text="${success}"></p>
+
+    <form th:action="@{/login}" method="post">
+        <label for="username">Username</label>
+        <input id="username" name="username"
+               autocomplete="username" required>
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password"
+               autocomplete="current-password" required>
+
+        <button type="submit">Log In</button>
+    </form>
+
+    <p>New to DevPath? <a th:href="@{/register}">Create an account</a></p>
+    <p><a th:href="@{/}">Back to Home</a></p>
+</div>
+</body>
+</html>
